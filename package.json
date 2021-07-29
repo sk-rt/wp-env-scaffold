@@ -13,8 +13,12 @@
     "dist:webpack": "NODE_ENV=production webpack --mode production",
     "build:webpack": "webpack",
     "dist:wp-theme": "cpx \"app/themes/!(twenty*)/**/*.!(log)\" dist/ -v",
-    "wp:start": "wp-env start",
+    "wp-env:start": "wp-env start",
+    "wp-env:stop": "wp-env stop",
+    "wp-env:update": "wp-env start --update",
     "wp-env": "wp-env",
+    "wp-env:cli": "wp-env run cli wp",
+    "wp-setup": "node scripts/wp-setup.js",
     "lint:fix": "eslint src/**/*.ts --fix",
     "clean-dist": "rimraf dist",
     "prepare": "husky install"

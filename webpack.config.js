@@ -6,12 +6,10 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const environment = process.env.NODE_ENV || 'development';
 const isDevelopment = environment === 'development';
 const themePath = wpConfig.themes[0];
-const themeName = ((path) => {
-  const pathList = path.split('/');
+const themeName = ((themePath) => {
+  const pathList = themePath.split('/');
   return pathList[pathList.length - 1] || pathList[pathList.length - 2];
 })(themePath);
-console.log(path.resolve(__dirname, themePath));
-console.log(path.resolve(__dirname, 'dist/', themeName));
 
 module.exports = {
   entry: {

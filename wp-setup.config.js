@@ -1,0 +1,21 @@
+module.exports = {
+  lang: 'ja',
+  theme: 'my-theme',
+  options: {
+    timezone_string: 'Asia/Tokyo',
+    date_format: 'Y-m-d',
+    time_format: 'H:i',
+    permalink_structure: '/blog/%post_id%/',
+    thumbnail_size_w: '320',
+    thumbnail_size_h: '320',
+    medium_size_w: '640',
+    medium_size_h: '640',
+    large_size_w: '1280',
+    large_size_h: '1280',
+    medium_large_size_w: '0',
+    show_avatars: '0',
+    default_pingback_flag: '0',
+    default_ping_status: 'closed',
+    default_comment_status: 'closed',
+  },
+};
