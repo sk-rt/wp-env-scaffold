@@ -1,0 +1,65 @@
+{
+  "name": "wp-env-scaffold",
+  "description": "WordPress Theme Dev scaffold",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "sk_rt",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npm-run-all -p watch:*",
+    "dist": "npm-run-all clean-dist dist:wp-theme dist:webpack",
+    "watch:webpack": "webpack --watch",
+    "dist:webpack": "NODE_ENV=production webpack --mode production",
+    "build:webpack": "webpack",
+    "dist:wp-theme": "cpx \"app/themes/!(twenty*)/**/*.!(log)\" dist/ -v",
+    "wp:start": "wp-env start",
+    "wp-env": "wp-env",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "clean-dist": "rimraf dist",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@typescript-eslint/eslint-plugin": "4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "@wordpress/env": "^4.1.0",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.27.4",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cpx": "^1.5.0",
+    "css-loader": "^6.2.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
+    "mini-css-extract-plugin": "^2.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "sass": "^1.36.0",
+    "sass-loader": "^12.1.0",
+    "ts-loader": "^9.2.4",
+    "typescript": "^4.3.5",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2"
+  }
+}

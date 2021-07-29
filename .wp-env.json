@@ -1,0 +1,18 @@
+{
+  "core": null,
+  "phpVersion": null,
+  "port": 8888,
+  "themes": ["./app/themes/my-theme"],
+  "plugins": [],
+  "mappings": {
+    "wp-content/plugins": "./app/plugins"
+  },
+  "env": {
+    "tests": {
+      "port": 8889
+    }
+  },
+  "config": {
+    "WP_DEBUG": true
+  }
+}

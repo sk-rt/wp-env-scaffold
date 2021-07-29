@@ -1,0 +1,22 @@
+{
+    "tabWidth": 2,
+    "singleQuote": true,
+    "printWidth": 100,
+    "overrides": [
+      {
+        "files": "*.json",
+        "options": {
+          "tabWidth": 2
+        }
+      },
+      {
+        "files": "*.html",
+        "options": {
+          "jsxBracketSameLine": true,
+          "htmlWhitespaceSensitivity": "css",
+          "printWidth": 140
+        }
+      }
+    ]
+  }
+  
