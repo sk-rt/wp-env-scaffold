@@ -1,0 +1,82 @@
+@use "sass:math";
+
+@use "sass:map";
+@use "../../foundation/variables";
+
+/*********************************************************
+
+
+Grid 
+
+.u-grid__column.is-4-12  -> 33.3%
+.u-grid__column.is-6-12  -> 50%
+
+
+**********************************************************/
+
+$grid_cols: 12;
+$grid_base: math.div(100, $grid_cols) * 1%;
+$grid_gap: 10px;
+.u-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-left: -#{$grid_gap};
+  margin-right: -#{$grid_gap};
+  &.is-column-center {
+    justify-content: center;
+  }
+  &.is-column-right {
+    justify-content: flex-end;
+  }
+  &.is-column-space-between {
+    justify-content: space-between;
+  }
+  @media #{map.get(variables.$max, md)} {
+    &.is-md-break {
+      display: block;
+      margin-left: 0;
+      margin-right: 0;
+      .u-grid__column {
+        width: auto;
+        margin: 0;
+        margin-bottom: 1em;
+      }
+    }
+  }
+  @media #{map.get(variables.$max, lg)} {
+    &.is-lg-break {
+      display: block;
+      margin-left: 0;
+      margin-right: 0;
+      .u-grid__column {
+        width: auto;
+        margin: 0;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
+
+.u-grid__column {
+  margin-left: $grid_gap;
+  margin-right: $grid_gap;
+  margin-bottom: $grid_gap * 2;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: calc(#{$grid_base * 1} - #{$grid_gap * 2});
+}
+@for $var from 1 to $grid_cols {
+  .u-grid__column.is-#{$var}-#{$grid_cols} {
+    flex-grow: 0;
+    flex-basis: calc(#{$grid_base * $var} - #{$grid_gap * 2});
+  }
+}
+@media #{map.get(variables.$max, md)} {
+  @for $var from 1 to $grid_cols {
+    .u-grid__column.is-md-#{$var}-#{$grid_cols} {
+      flex-basis: calc(#{$grid_base * $var} - #{$grid_gap * 2});
+    }
+  }
+}

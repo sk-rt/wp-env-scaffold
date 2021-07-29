@@ -1,0 +1,38 @@
+/*********************************************************
+
+
+Post navi （Prev / Next link in single post ）
+
+
+**********************************************************/
+
+.c-post-navi {
+  text-align: center;
+  font-size: 1.3rem;
+  color: $c_main;
+}
+
+.c-post-navi__inner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.c-post-navi__item {
+  display: block;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: baseline;
+  padding: 0.4em 1em;
+  i {
+    margin: 0 0.5em;
+  }
+  &.is-disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+}
+.c-post-navi__backtolist {
+  padding: 0.4em 1em;
+}

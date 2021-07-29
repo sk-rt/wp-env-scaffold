@@ -1,0 +1,30 @@
+/*********************************************************
+
+
+Article
+
+
+**********************************************************/
+.c-article__inner {
+  margin-bottom: 3em;
+}
+.c-article__header {
+  margin-bottom: 2em;
+}
+.c-article__title {
+  font-size: 2rem;
+  line-height: 1.4;
+}
+.c-article__date {
+  font-size: 0.8em;
+  margin-right: 1em;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+.c-article__eyecatch {
+  margin-bottom: 2em;
+  img {
+    vertical-align: bottom;
+    pointer-events: none;
+  }
+}

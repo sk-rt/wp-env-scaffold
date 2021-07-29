@@ -1,0 +1,95 @@
+@use "sass:map";
+@use "../../foundation/variables";
+@use "../../object/utility/font";
+
+/*********************************************************
+
+
+Pager
+
+
+**********************************************************/
+.c-pager {
+  margin-top: 3em;
+  position: relative;
+  @media #{map.get(variables.$max, md)} {
+    margin-top: 1em;
+  }
+}
+.c-pager__count {
+  display: none;
+  @extend .u-font-featured;
+  font-size: 1.3rem;
+  color: variables.$c_main;
+  @media #{map.get(variables.$max, md)} {
+    display: block;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.c-pager__container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: stretch;
+  font-size: 1.3rem;
+  @media #{map.get(variables.$max, md)} {
+    justify-content: space-between;
+  }
+  a.page-numbers {
+    transition: background-color 0.2s;
+  }
+  a:hover {
+    background-color: rgba(variables.$c_main, 0.5);
+  }
+  .page-numbers {
+    width: 48px;
+    height: 48px;
+    background-color: variables.$c_main;
+    margin: 0 2px;
+    border-radius: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: variables.$c_base;
+    @extend .u-font-featured;
+    @media #{map.get(variables.$max, md)} {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .dots {
+    background-color: transparent;
+    margin: 0;
+    width: 2em;
+    color: variables.$c_main;
+  }
+  .current {
+    background-color: rgba(variables.$c_main, 0.2);
+    color: variables.$c_main;
+  }
+  .next {
+    margin-left: 1em;
+  }
+  .prev {
+    margin-right: 1em;
+  }
+
+  @media #{map.get(variables.$max, md)} {
+    .page-numbers {
+      display: none;
+      margin: 0;
+    }
+    .next,
+    .prev {
+      display: flex;
+    }
+    .next {
+      margin-left: auto;
+    }
+  }
+}

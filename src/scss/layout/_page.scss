@@ -1,0 +1,49 @@
+@use "sass:map";
+@use "../foundation/variables";
+
+/*********************************************************
+
+
+ Page
+
+
+**********************************************************/
+/****************************************
+
+         Header
+
+*****************************************/
+.l-page-header {
+  background-color: rgba(variables.$c_main, 0.9);
+  padding: 3.3vw 2vw;
+  min-height: 80px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  color: variables.$c_base;
+  @media #{map.get(variables.$max, md)} {
+    padding: 25px 6%;
+  }
+}
+
+.l-page-header__title {
+  color: variables.$c_base;
+  font-size: 2rem;
+  @media #{map.get(variables.$max, md)} {
+  }
+}
+
+/****************************************
+
+         Content
+
+*****************************************/
+.l-page-content {
+  padding-top: 7em;
+  padding-bottom: 7em;
+  @media #{map.get(variables.$max, md)} {
+    padding-top: 1.5em;
+    padding-bottom: 5em;
+  }
+}

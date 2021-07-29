@@ -1,0 +1,119 @@
+@use "sass:map";
+@use "variables";
+
+/*********************************************************
+
+
+
+         Common
+         general
+
+
+
+
+**********************************************************/
+
+/****************************************
+
+          General Setting
+
+*****************************************/
+html {
+  font-size: 16px;
+  @media #{map.get(variables.$max, md)} {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.8;
+  font-weight: 300;
+  font-family: variables.$default_font;
+  letter-spacing: 0.06em;
+  color: variables.$c_text;
+  background-color: variables.$c_base;
+  -webkit-text-size-adjust: 100%;
+  text-justify: inter-ideograph;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-feature-settings: 'palt';
+  -webkit-font-feature-settings: 'palt';
+  font-feature-settings: 'palt';
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+svg {
+  max-width: 100%;
+}
+
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+a,
+button {
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    box-shadow: 0px 0px 2px 2px rgba(#ccc, 0.3);
+    outline: none;
+  }
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  box-sizing: content-box;
+  font-size: 1rem;
+  color: inherit;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+/****************************************
+
+          clearfix
+
+*****************************************/
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+/****************************************
+
+          Wp admin
+
+*****************************************/
+body {
+  --adminbar-height: 0;
+  &.admin-bar {
+    --adminbar-height: 32px;
+    @media screen and (max-width: 782px) {
+      --adminbar-height: 46px;
+    }
+    @media screen and (max-width: 600px) {
+      --adminbar-height: 0;
+    }
+  }
+}

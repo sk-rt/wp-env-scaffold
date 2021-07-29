@@ -1,0 +1,148 @@
+@use "sass:math";
+@use "sass:map";
+@use "../../foundation/variables";
+
+/*********************************************************
+
+
+Post 
+
+
+**********************************************************/
+/****************************************
+
+         post card
+
+*****************************************/
+$card_gutter: 0.6%;
+.c-card-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-left: -$card_gutter;
+  margin-right: -$card_gutter;
+  @media #{map.get(variables.$max, sm)} {
+  }
+}
+
+.c-card-item {
+  flex: 0 0 auto;
+  width: 100% * 0.25 - $card_gutter * 2;
+  margin-left: $card_gutter;
+  margin-right: $card_gutter;
+  margin-bottom: 2.5%;
+  padding-bottom: 1em;
+  transition: background-color 0.4s;
+  @media #{map.get(variables.$max, lg)} {
+    width: math.div(100%, 3) - $card_gutter * 2;
+  }
+  @media #{map.get(variables.$max, md)} {
+    width: 100% * 0.5 - $card_gutter * 2;
+    margin-bottom: 2em;
+  }
+}
+.c-card-item__container {
+  display: block;
+  padding: 10px 10px 0;
+  @media #{map.get(variables.$max, md)} {
+    padding: 6px 6px 0;
+  }
+}
+.c-card-item__thumb {
+  width: 100%;
+  padding-top: 100%;
+  background-color: rgba(variables.$c_main, 0.1);
+  position: relative;
+  overflow: hidden;
+  img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.2s;
+    pointer-events: none;
+    @supports (object-fit: cover) {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+  @at-root .is-item-hover & {
+    img {
+      transition-duration: 0.4s;
+      transform: scale(1.06);
+    }
+  }
+}
+.c-card-item__content {
+  color: variables.$c_main;
+  padding: 1em 6px 0;
+  line-height: 1.4;
+  margin-bottom: 0.2em;
+  @media #{map.get(variables.$max, sm)} {
+    font-size: 0.9em;
+  }
+  @at-root .is-item-hover & {
+    color: variables.$c_base;
+  }
+}
+.c-card-item__terms {
+  color: variables.$c_main;
+  padding: 0 16px;
+  line-height: 1.4;
+  @media #{map.get(variables.$max, md)} {
+    padding: 0 12px;
+  }
+}
+.c-card-item__term {
+  font-size: 12px;
+  border-bottom: 1px solid;
+  margin-right: 0.5em;
+  margin-bottom: 0.1em;
+  display: inline-block;
+}
+/****************************************
+
+         postlist
+
+*****************************************/
+.c-post-list {
+  border-bottom: 1px solid rgba(variables.$c_text, 0.3);
+}
+.c-post-item {
+  display: block;
+}
+
+.c-post-item__inner {
+  border-top: 1px solid rgba(variables.$c_text, 0.3);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 1.4em 0;
+}
+.c-post-item__content {
+  flex: 1 1 auto;
+}
+.c-post-item__heading {
+  font-size: 1.1em;
+  @media #{map.get(variables.$max, md)} {
+    font-size: 1em;
+  }
+}
+
+.c-post-list-item__meta {
+  margin-right: 1em;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  @media #{map.get(variables.$max, md)} {
+    font-size: 0.7em;
+  }
+}
+.c-post-item__meta__date {
+  font-size: 0.8em;
+  @media #{map.get(variables.$max, md)} {
+    font-size: 0.7em;
+  }
+}

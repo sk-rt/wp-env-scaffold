@@ -1,0 +1,132 @@
+@use "sass:map";
+@use "../../foundation/variables";
+
+/*********************************************************
+
+
+ Layout Utils
+
+
+**********************************************************/
+
+/****************************************
+
+          Container
+
+*****************************************/
+@each $key in map.keys(variables.$content_size) {
+  .u-container--#{$key} {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: #{map.get(variables.$content_size, #{$key})};
+  }
+}
+
+/****************************************
+
+          Gutter
+
+*****************************************/
+.u-gutter--lg {
+  padding-left: variables.$gutter_lg;
+  padding-right: variables.$gutter_lg;
+}
+.u-gutter--sm {
+  padding-left: variables.$gutter_sm;
+  padding-right: variables.$gutter_sm;
+}
+@media #{map.get(variables.$max, md)} {
+  .u-gutter--lg {
+    padding-left: variables.$gutter_liquid_lg;
+    padding-right: variables.$gutter_liquid_lg;
+  }
+  .u-gutter--sm {
+    padding-left: variables.$gutter_liquid_sm;
+    padding-right: variables.$gutter_liquid_sm;
+  }
+}
+/****************************************
+
+          Only PC/SP
+
+*****************************************/
+.u-only--sp {
+  display: none;
+}
+@media #{map.get(variables.$max, md)} {
+  .u-only--sp {
+    display: block;
+  }
+  .u-only--pc {
+    display: none;
+  }
+}
+/****************************************
+
+          Only All breakpoint
+          
+          u-only--min-md
+          u-only--max-sm
+
+*****************************************/
+@each $key in map.keys(variables.$min) {
+  .u-only--min-#{$key} {
+    display: none;
+    @media #{ map.get(variables.$min, #{$key})} {
+      display: block;
+    }
+  }
+}
+@each $key in map.keys(variables.$max) {
+  .u-only--max-#{$key} {
+    display: none;
+    @media #{ map.get(variables.$max, #{$key})} {
+      display: block;
+    }
+  }
+}
+/****************************************
+
+          Margin
+
+*****************************************/
+.u-mb--none {
+  margin-bottom: 0;
+}
+
+@for $var from 1 to 10 {
+  .u-mb--#{$var}en {
+    margin-bottom: #{$var * 0.5}em;
+  }
+  .u-mt--#{$var}en {
+    margin-top: #{$var * 0.5}em;
+  }
+}
+@for $var from 1 to 10 {
+  .u-mb--#{$var}em {
+    margin-bottom: #{$var}em;
+  }
+  .u-mt--#{$var}em {
+    margin-top: #{$var}em;
+  }
+}
+/****************************************
+
+          Padding
+
+*****************************************/
+.u-pb--none {
+  padding-bottom: 0;
+}
+.u-pt--none {
+  padding-top: 0;
+}
+
+@for $var from 1 to 10 {
+  .u-pb--#{$var}em {
+    padding-bottom: #{$var}em;
+  }
+  .u-pt--#{$var}em {
+    padding-top: #{$var}em;
+  }
+}

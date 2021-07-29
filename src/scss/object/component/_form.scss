@@ -1,0 +1,41 @@
+@use "../../foundation/variables";
+
+/*********************************************************
+
+
+Form
+
+
+**********************************************************/
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='search'],
+textarea,
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+select {
+  font-family: inherit;
+}
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='search'],
+textarea {
+  margin: 0;
+  padding: 0.8em 1em;
+  max-width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  font-size: 1em;
+  font-weight: normal;
+  font-family: inherit;
+  border: 1px solid;
+  background: variables.$c_base;
+  color: inherit;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 4px;
+}

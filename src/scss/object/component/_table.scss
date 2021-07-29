@@ -1,0 +1,52 @@
+@use "sass:map";
+@use "../../foundation/variables";
+
+/*********************************************************
+
+
+table
+
+
+**********************************************************/
+
+.c-table {
+  width: 100%;
+  border-bottom: 1px solid rgba(variables.$c_text, 0.1);
+  th,
+  td {
+    padding: 2.5em 0;
+    vertical-align: baseline;
+    border-top: 1px solid rgba(variables.$c_text, 0.1);
+  }
+  th {
+    white-space: nowrap;
+    padding-right: 2em;
+    position: relative;
+    text-align: left;
+    width: 20%;
+  }
+  @media #{map.get(variables.$max, md)} {
+    display: block;
+
+    tr,
+    th,
+    td,
+    tbody,
+    thead {
+      display: block;
+    }
+    th {
+      padding: 0.6em 0 0.7em;
+      width: auto;
+      font-size: 0.9em;
+    }
+    td {
+      padding: 0 0 1.2em 1em;
+      border: none;
+    }
+    th {
+      white-space: wrap;
+      padding-right: 0;
+    }
+  }
+}
