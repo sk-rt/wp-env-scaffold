@@ -1,6 +1,6 @@
 #  Boilerplate for WordPress website development
 
-wp-env + webpack(TypeScript/Scss)
+[wp-env](https://www.npmjs.com/package/@wordpress/env) + frontend   webpack(TypeScript/scss)
 
 ## Configuration
 
@@ -12,15 +12,20 @@ Doc [@wordpress/env#wp-env-json](https://developer.wordpress.org/block-editor/re
 
 ### Starting WordPress container
 
-```
+```sh
 yarn && yarn wp-env:start
 ```
 
 
 ### Setup WordPress
 
+- Install languege
+- Activete theme & plugins
+- Update wp_options
+
 Edit [wp-setup.config.js](./wp-setup.config.js)
-```
+
+```sh
 yarn wp-env:setup
 ```
 
@@ -42,8 +47,8 @@ yarn build
 ### WP-CLI
 
 ```sh
-yarn wp-env:cli {command}
+yarn wp:cli {command}
 # example
-yarn wp-env:cli --info
-yarn wp-env:cli user list
+yarn wp:cli --info
+yarn wp:cli user list
 ```
