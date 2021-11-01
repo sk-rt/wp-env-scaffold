@@ -1,40 +1,33 @@
 <?php
+
 /***************************************************************
 
-Initialized
+
+Initialize
+
 
  ***************************************************************/
 
-add_action('after_switch_theme', function () {
+namespace App\Initialize;
+
+use App\Helper;
+
+function init()
+{
     add_action('admin_init', function () {
-        my_add_terms(get_requiterd_category_terms(), 'category');
+        Helper\insert_new_terms(get_requiterd_category_terms(), 'category');
         add_required_pages();
     });
-});
+}
+add_action('after_switch_theme', 'App\Initialize\init');
+
 
 /* ========================================
 
 必須タームの追加
 
 ======================================== */
-/**
- * タームの作成
- */
-function my_add_terms(array $term_array, string $taxonomy)
-{
-    if (!$taxonomy || !$term_array) {
-        return;
-    }
-    foreach ($term_array as $term) {
-        $is_term = term_exists($term['category_nicename'], $taxonomy);
-        if ($is_term === 0 || $is_term === null) {
-            $term += array(
-                'taxonomy' => $taxonomy,
-            );
-            wp_insert_category($term, false);
-        }
-    }
-}
+
 /**
  * カテゴリリスト
  */
@@ -47,7 +40,6 @@ function get_requiterd_category_terms()
             'category_description' => '',
         ),
     );
-
 }
 /* ========================================
 

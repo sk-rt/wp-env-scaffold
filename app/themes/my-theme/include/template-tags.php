@@ -1,22 +1,32 @@
 <?php
+
 /***************************************************************
 
-utility
+
+Functions for template 
+
 
  ***************************************************************/
 
+namespace App\CustomTags;
+
 /**
- * カレントURL取得
+ * クエリパラメータを除外canonicalURL取得
  */
-function util_get_canonical_url()
+function get_the_canonical_url()
 {
-    return esc_html((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    if (is_404()) {
+        return home_url('/');
+    }
+    $full_uri = $_SERVER["REQUEST_URI"];
+    $path = parse_url($full_uri, PHP_URL_PATH);
+    return esc_url((empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $path);
 }
 
 /**
  * ブログトップ URL取得
  */
-function util_get_blog_home_url()
+function get_blog_home_url()
 {
     if (get_option('page_for_posts')) {
         $blog_index = get_post(get_option('page_for_posts'));
@@ -25,20 +35,8 @@ function util_get_blog_home_url()
         return home_url();
     }
 }
-/**
- * テンプレートパーツ 取得
- * WPの `get_template_part()` を出力せずにhtmlで返す
- * @param $temp_path string テンプレートパス
- * @return html
- */
-function util_get_template_part($temp_path)
-{
-    ob_start();
-    $view = get_template_part($temp_path);
-    $view = ob_get_contents();
-    ob_end_clean();
-    return $view;
-}
+
+
 /* ========================================
 
 SEO
@@ -48,9 +46,9 @@ SEO
 /**
  * OGP画像取得
  */
-function util_get_og_image_url()
+function get_the_ogimage_url()
 {
-    $def_image = get_template_directory_uri() . '/site-icons/ogp.png';
+    $def_image = get_stylesheet_directory_uri() . '/site-icons/ogp.png';
     if (is_single() || is_page()) {
         global $post;
         $postid = $post->ID;
@@ -66,7 +64,7 @@ function util_get_og_image_url()
 /**
  * Description 取得
  */
-function util_get_description()
+function get_the_description()
 {
     if (is_front_page()) {
         return get_bloginfo('description');
@@ -121,22 +119,9 @@ add_shortcode('template', function ($atts) {
         $atts
     );
     $temp_path = 'template-parts/' . esc_attr($atts['temp']);
-    $view = my_get_template_part($temp_path);
+    $view = get_template_part_html($temp_path);
     return $view;
 });
-
-/* ========================================
-
-Logger
-
-======================================== */
-/**
- * Logファイルに変数を出力
- */
-function debug_log($var)
-{
-    \error_log(var_export($var, true) . "\n", 3, __DIR__ . '/../log/debug.log');
-};
 
 /* ========================================
 

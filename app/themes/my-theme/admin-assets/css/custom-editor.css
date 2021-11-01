@@ -1,0 +1,28 @@
+.editor-styles-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+}
+/* 全てのalign系ツールバーボタンを削除 */
+.components-dropdown-menu__toggle[aria-label='配置'],
+.components-dropdown-menu__toggle[aria-label='Align'] {
+  display: none;
+}
+/* 見出しブロックの選択肢を調整 */
+.components-toolbar-button[aria-label='見出し1'],
+.components-toolbar-button[aria-label='見出し5'],
+.components-toolbar-button[aria-label='見出し6'],
+.components-toolbar-button[aria-label='Heading 1'],
+.components-toolbar-button[aria-label='Heading 5'],
+.components-toolbar-button[aria-label='Heading 6'] {
+  display: none;
+}
+
+/* 画像ブロックのツールバーボタン削除 */
+.components-toolbar-button[aria-label='画像上にテキストを追加'],
+.components-toolbar-button[aria-label='Add text over image'] {
+  display: none;
+}
+/* ボタンブロック、ボタンの幅削除 */
+.components-panel__body :where(.components-button-group[aria-label='ボタンの幅']) {
+  display: none;
+}

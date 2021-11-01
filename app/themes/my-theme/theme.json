@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "settings": {
+    "border": {
+      "customColor": false,
+      "customRadius": false,
+      "customStyle": false,
+      "customWidth": false
+    },
+    "color": {
+      "background": false,
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "duotone": [],
+      "gradients": [],
+      "link": false,
+      "palette": [],
+      "text": false
+    },
+    "layout": false,
+    "spacing": {
+      "customMargin": false,
+      "customPadding": false
+    },
+    "typography": {
+      "customFontSize": false,
+      "customFontStyle": false,
+      "customFontWeight": false,
+      "customLineHeight": false,
+      "customTextDecorations": false,
+      "customTextTransforms": false,
+      "dropCap": false,
+      "fontFamilies": [],
+      "fontSizes": []
+    },
+    "blocks": {
+      "core/button": {
+        "border": {
+          "customRadius": false
+        }
+      }
+    }
+  },
+  "styles": {},
+  "customTemplates": {},
+  "templateParts": {}
+}

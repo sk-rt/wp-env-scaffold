@@ -2,7 +2,12 @@
 
 /***************************************************************
 
-カスタムフィールドを追加
+
+ Custom fields (ACF)
+
 
  ***************************************************************/
-get_template_part("include/customfield/meta", "all");
+
+namespace App\CustomField;
+
+require get_stylesheet_directory() . '/include/custom-fields/post.php';
