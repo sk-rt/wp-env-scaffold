@@ -1,3 +1,5 @@
+@use '../../foundation/variables';
+
 /*********************************************************
 
 
@@ -7,11 +9,9 @@ Post navi （Prev / Next link in single post ）
 **********************************************************/
 
 .c-post-navi {
-  text-align: center;
-  font-size: 1.3rem;
-  color: $c_main;
+  border-top: 1px solid variables.$c_line_gray;
+  padding-top: 1em;
 }
-
 .c-post-navi__inner {
   display: flex;
   flex-flow: row nowrap;

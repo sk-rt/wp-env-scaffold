@@ -2,11 +2,13 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "checkJs": true,
     "strict": true,
     "sourceMap": true,
     "target": "es5",
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "lib": ["esnext","DOM"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]

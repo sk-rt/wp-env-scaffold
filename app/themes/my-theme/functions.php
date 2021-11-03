@@ -5,47 +5,60 @@
 general
 
  ***************************************************************/
-get_template_part('include/general');
+require get_stylesheet_directory().'/include/general.php';
 
 /***************************************************************
 
 utility
 
  ***************************************************************/
-get_template_part('include/utility');
+require get_stylesheet_directory().'/include/helpers.php';
 
 /***************************************************************
 
 initialize
 
  ***************************************************************/
-get_template_part('include/initialize');
+require get_stylesheet_directory().'/include/initialize.php';
 
 /***************************************************************
 
-カスタム投稿　を追加
+custom post
 
  ***************************************************************/
-get_template_part('include/add-custompost');
+require get_stylesheet_directory().'/include/custom-posts.php';
 
 /***************************************************************
 
-カスタムフィールド
+custom fields
 
  ***************************************************************/
-get_template_part('include/add-customfield');
+require get_stylesheet_directory().'/include/custom-fields/index.php';
 
 /***************************************************************
 
-custom query
+template hooks
 
  ***************************************************************/
-get_template_part('include/custom-query');
+require get_stylesheet_directory().'/include/template-hooks.php';
+
+/***************************************************************
+
+template tags
+
+ ***************************************************************/
+require get_stylesheet_directory().'/include/template-tags.php';
 
 /***************************************************************
 
 admin
 
  ***************************************************************/
-get_template_part('include/custom-admin');
+require get_stylesheet_directory().'/include/admin.php';
 
+/***************************************************************
+
+classic & block editor
+
+ ***************************************************************/
+require get_stylesheet_directory().'/include/editor.php';

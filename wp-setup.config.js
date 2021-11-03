@@ -1,7 +1,10 @@
 module.exports = {
   lang: 'ja',
   theme: 'my-theme',
+  plugins: ['wp-multibyte-patch', 'duplicate-post', 'code-to-post'],
   options: {
+    blogname: 'WP Scaffold',
+    blogdescription: 'WordPress Theme Dev scaffold',
     timezone_string: 'Asia/Tokyo',
     date_format: 'Y-m-d',
     time_format: 'H:i',

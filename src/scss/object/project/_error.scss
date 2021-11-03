@@ -1,19 +1,25 @@
-@use "sass:map";
-@use "../../foundation/variables";
+@use 'sass:map';
+@use '../../foundation/variables';
 
 /*********************************************************
 
 
 
- Top page
+ 404
 
 
 
 **********************************************************/
 /****************************************
 
-         XXX
+         Hero
 
 *****************************************/
-@media #{map.get(variables.$max, sm)} {
+.p-404 {
+  text-align: center;
+  @media #{map.get(variables.$max, md)} {
+  }
+}
+.p-404__title {
+  margin-bottom: 2em;
 }

@@ -1,8 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const wpConfig = require('./.wp-env.json');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+
 const environment = process.env.NODE_ENV || 'development';
 const isDevelopment = environment === 'development';
 const themePath = wpConfig.themes[0];
@@ -14,6 +16,7 @@ const themeName = ((themePath) => {
 module.exports = {
   entry: {
     main: `${__dirname}/src/js/main.ts`,
+    'admin-editor': `${__dirname}/src/js/admin-editor.ts`,
   },
   target: 'web',
   mode: isDevelopment ? environment : 'production',
@@ -30,19 +33,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.ts?$/,
-        use: [
-          {
-            loader: 'eslint-loader',
-            options: {
-              fix: true,
-              failOnError: true,
-            },
-          },
-        ],
-      },
       {
         test: /\.ts|js$/,
         use: [
@@ -85,14 +75,27 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
+    new ESLintPlugin({
+      extensions: ['.ts', '.js'],
+      fix: true,
+    }),
+
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(environment),
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/style.css',
+      filename: 'css/[name].css',
     }),
     new BrowserSyncPlugin({
       proxy: `localhost:${wpConfig.port}`,

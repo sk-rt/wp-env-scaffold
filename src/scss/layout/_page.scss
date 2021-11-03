@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "../foundation/variables";
+@use 'sass:map';
+@use '../foundation/variables';
 
 /*********************************************************
 
@@ -14,21 +14,21 @@
 
 *****************************************/
 .l-page-header {
-  background-color: rgba(variables.$c_main, 0.9);
-  padding: 3.3vw 2vw;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
   min-height: 80px;
+  border-bottom: 1px solid variables.$c_line_gray;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: flex-start;
-  color: variables.$c_base;
   @media #{map.get(variables.$max, md)} {
-    padding: 25px 6%;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
 
 .l-page-header__title {
-  color: variables.$c_base;
   font-size: 2rem;
   @media #{map.get(variables.$max, md)} {
   }
@@ -40,10 +40,22 @@
 
 *****************************************/
 .l-page-content {
-  padding-top: 7em;
+  padding-top: 5em;
   padding-bottom: 7em;
   @media #{map.get(variables.$max, md)} {
     padding-top: 1.5em;
     padding-bottom: 5em;
+  }
+}
+.l-page-content--no-margin--top {
+  padding-bottom: 7em;
+  @media #{map.get(variables.$max, md)} {
+    padding-bottom: 5em;
+  }
+}
+.l-page-content--no-margin--bottom {
+  padding-top: 5em;
+  @media #{map.get(variables.$max, md)} {
+    padding-top: 1.5em;
   }
 }

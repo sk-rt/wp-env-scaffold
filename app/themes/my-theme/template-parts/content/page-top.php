@@ -1,6 +1,9 @@
 
-
+<?php use App\CustomTags as Tags; ?>
 <div class="p-top-main">
+    <section class="p-top-hero">
+        <h2><?php bloginfo( "description" );?></h2>
+    </section>
     <?php if (have_posts()) :  while ( have_posts() ) : the_post(); ?>
     <section class="p-top-content">
         <?php the_content() ?>
@@ -19,16 +22,13 @@
 
     ?>
     <?php if ($news_list): ?>
-    <section id="recentNews" class="p-top-news u-gutter--lg">
+    <section class="p-top-news u-gutter--lg">
         <div class="p-top-news__inner ">
             <div class="p-top-news__header">
-                <h2 class="p-top-news__title c-heading-featured">
-                News
-                </h2>
-                <a href="<?php echo util_get_blog_home_url(); ?>" class="p-top-news__link u-font-featured"><span>More</span><i class="c-icon-angle--right"></i></a>
+                <h2 class="p-top-news__title c-heading--md">News</h2>
+                <a href="<?php echo Tags\get_blog_home_url(); ?>" class="p-top-news__link"><span>More</span><i class="c-icon-angle--right"></i></a>
             </div>
-                
-            <div class="p-top-news__list">
+            <div class="p-top-news__list c-post-list">
                 <?php foreach ($news_list as $post): setup_postdata($post);
                     get_template_part("template-parts/loop/post"); 
                 endforeach;

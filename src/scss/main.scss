@@ -20,8 +20,11 @@
 @use 'object/component/heading';
 @use 'object/component/icon';
 @use 'object/component/button';
+@use 'object/component/thumbnail';
 @use 'object/component/form';
-@use 'object/component/post';
+@use 'object/component/post-list';
+@use 'object/component/card-list';
+@use 'object/component/post-navi';
 @use 'object/component/article';
 @use 'object/component/content';
 @use 'object/component/pager';
@@ -30,7 +33,8 @@
 /* ====================================================
           project
  */
-@use 'object/project/index';
+@use 'object/project/top';
+@use 'object/project/error';
 
 /* ====================================================
           Utils

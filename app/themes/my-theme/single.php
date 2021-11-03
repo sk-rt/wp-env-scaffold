@@ -6,7 +6,7 @@ $post_type = get_post_type();
 $post_type_name = esc_html(get_post_type_object($post_type)->label );
 ?>
 <div class="l-page-main">
-    <div class="l-page-header">
+    <div class="l-page-header u-gutter--lg">
         <h3 class="l-page-header__title">
         <?php echo $post_type_name; ?>
         </h3>

@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 /* -----------------------
 Font
 ----------------------- */
@@ -11,9 +11,15 @@ Color
 ----------------------- */
 $c_text: #000;
 $c_base: #fff;
-$c_main: #0000ff;
-$c_accent: #ff0;
-$c_danger: #f00;
+$c_main: #167da5;
+$c_accent: rgb(217, 131, 32);
+$c_danger: rgba(255, 0, 0, 0.861);
+
+$c_base_gray: rgba($c_text, 0.1);
+$c_base_gray_light: rgba($c_text, 0.06);
+$c_base_gray_dark: rgba($c_text, 0.2);
+
+$c_line_gray: rgba($c_text, 0.1);
 
 /* -----------------------
 Breackpoint
@@ -53,5 +59,10 @@ Gutter Size
 ----------------------- */
 $gutter_lg: 4vw;
 $gutter_sm: 20px;
-$gutter_liquid_lg: 6%;
-$gutter_liquid_sm: 3%;
+$gutter_lg_max-md: 6%;
+$gutter_sm_max-md: 10px;
+/* -----------------------
+gloval header Size
+----------------------- */
+$header_height: 110px;
+$header_height_max-md: 64px;

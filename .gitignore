@@ -1,6 +1,4 @@
-# --------------------------------------
-# For Project
-# --------------------------------------
+
 .DS_*
 *.log
 logs
@@ -11,6 +9,10 @@ bower_components
 /dist
 .env
 .env.*
-
 app/plugins/*
-# Pluginwhitelist
+
+# -----------------------
+# WP Plugin whitelist
+# ------------------------
+
+# !plugins/my-plugin

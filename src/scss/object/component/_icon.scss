@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "../../foundation/variables";
+@use 'sass:map';
+@use '../../foundation/variables';
 
 /*********************************************************
 
@@ -185,4 +185,50 @@ Icon
   to {
     transform: rotate(360deg);
   }
+}
+
+/****************************************
+
+         SVG ICON
+
+*****************************************/
+%c-icon-svg {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  @media #{map.get(variables.$max, md)} {
+    width: 10px;
+    height: 10px;
+  }
+}
+/* -----------------------------
+    Arrow
+*/
+
+.c-icon-arrow--right {
+  @extend %c-icon-svg;
+}
+.c-icon-arrow--left {
+  @extend %c-icon-svg;
+  transform: rotate(180deg);
+}
+
+/* -----------------------------
+    PDF
+*/
+.c-icon-pdf {
+  @extend %c-icon-svg;
+}
+
+/* -----------------------------
+    External
+*/
+.c-icon-external {
+  @extend %c-icon-svg;
+}
+/* -----------------------------
+    Search
+*/
+.c-icon-search {
+  @extend %c-icon-svg;
 }

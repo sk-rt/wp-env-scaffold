@@ -1,0 +1,51 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../../foundation/variables';
+
+/*********************************************************
+
+
+Post List
+
+
+**********************************************************/
+
+.c-post-list {
+  border-bottom: 1px solid variables.$c_line_gray;
+}
+.c-post-item {
+  display: block;
+}
+
+.c-post-item__inner {
+  border-top: 1px solid variables.$c_line_gray;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 1.4em 0;
+}
+.c-post-item__content {
+  flex: 1 1 auto;
+}
+.c-post-item__heading {
+  font-size: 1.1em;
+  @media #{map.get(variables.$max, md)} {
+    font-size: 1em;
+  }
+}
+
+.c-post-item__meta {
+  margin-right: 1em;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  @media #{map.get(variables.$max, md)} {
+    font-size: 0.7em;
+  }
+}
+.c-post-item__meta__date {
+  font-size: 0.8em;
+  @media #{map.get(variables.$max, md)} {
+    font-size: 0.7em;
+  }
+}
