@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "../../foundation/variables";
+@use 'sass:map';
+@use '../../foundation/variables';
 
 /*********************************************************
 
@@ -16,17 +16,16 @@ Button
 *****************************************/
 
 .c-button {
-  padding: 0.8em 1.4em;
+  padding: 1em 2.2em;
   background-color: variables.$c_main;
   display: inline-block;
   color: variables.$c_base;
-  border-radius: 1.7em;
   border-radius: 1.8em / 1.8em;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.4;
-  min-width: 250px;
+  min-width: 320px;
   box-sizing: border-box;
   text-align: center;
   @media #{map.get(variables.$max, md)} {
@@ -35,58 +34,22 @@ Button
     font-size: 1rem;
     min-width: 150px;
   }
-  &.is-auto {
+  &.is-width-auto {
     min-width: 0;
   }
-  &.has-icon {
-    padding-left: 2.7em;
-    padding-right: 2.7em;
-  }
+
   &.is-inversion {
     background-color: variables.$c_base;
     color: variables.$c_main;
   }
-  &.is-inversion-pale {
-    background-color: rgba(variables.$c_base, 0.1);
-    color: variables.$c_base;
-  }
-  &.is-border {
-    background-color: transparent;
-    border: 2px solid;
-    color: variables.$c_main;
-  }
-  &.is-sm {
-    font-size: 1rem;
-    padding: 0.8em 1em;
-    min-width: 200px;
-    &.has-icon {
-      padding-left: 2.2em;
-      padding-right: 2.2em;
-    }
-    @media #{map.get(variables.$max, md)} {
-      min-width: 80px;
-      font-size: 0.9em;
-    }
-  }
-  &.is-lg {
-    font-size: 1.2em;
-    min-width: 300px;
-    padding: 1.3em 2em;
-    border-radius: 0em;
-    @media #{map.get(variables.$max, md)} {
-      min-width: 0;
-      display: block;
-      font-size: 1.1em;
-      padding: 1.1em 2em;
-    }
-  }
+
   &[disabled],
   &.is-disabled,
   &[aria-disabled='true'] {
     pointer-events: none;
     opacity: 0.4;
   }
-  @media #{map.get(variables.$min, md)} {
+  @media #{map.get(variables.$min, md)} and (hover:hover) {
     transition: opacity 0.3s;
     &:hover {
       opacity: 0.7;
@@ -123,18 +86,4 @@ Button
       width: 14px;
     }
   }
-}
-
-.c-term-button {
-  padding: 0.2em 1em;
-  margin: 0.2em 0.1em;
-  background-color: variables.$c_main;
-  display: inline-block;
-  color: variables.$c_base;
-  border-radius: 1.5em;
-  position: relative;
-  font-weight: 600;
-  line-height: 1.4;
-  box-sizing: border-box;
-  text-align: center;
 }

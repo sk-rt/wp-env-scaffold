@@ -13,5 +13,6 @@
 <meta name="twitter:title" content="<?php echo wp_get_document_title(); ?>">
 <meta itemprop="image" content="<?php echo Tags\get_the_ogimage_url(); ?>">
 <link rel="icon" type="image/png" sizes="48x48" href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
+<link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo home_url('/favicon.ico'); ?>">
 <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
 <?php wp_head(); ?>

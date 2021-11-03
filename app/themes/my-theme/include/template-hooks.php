@@ -10,6 +10,8 @@ Hooks
 
 namespace App\Hooks;
 
+use App\Helper;
+
 /* ========================================
 
 Customize main query
@@ -124,3 +126,39 @@ function custom_excerpt_content($postContent)
     return $postContent;
 }
 add_filter('the_excerpt', 'App\Hooks\custom_excerpt_content');
+
+
+
+/* ========================================
+
+ショートコード
+
+======================================== */
+/**
+ * theme url
+ */
+add_shortcode('tempUrl', function () {
+    return get_template_directory_uri() . '/';
+});
+/**
+ * home url
+ */
+add_shortcode('homeUrl', function () {
+    return home_url('/');
+});
+
+/**
+ * WPの `get_template_part()` ショートコード
+ * [template temp="temp-path"]
+ */
+add_shortcode('template', function ($atts) {
+    $atts = shortcode_atts(
+        array(
+            'temp' => '',
+        ),
+        $atts
+    );
+    $temp_path = 'template-parts/' . esc_attr($atts['temp']);
+    $view = Helper\get_template_part_html($temp_path);
+    return $view;
+});

@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use '../../foundation/variables';
+
+/*********************************************************
+
+
+
+ Top page
+
+
+
+**********************************************************/
+/****************************************
+
+         Hero
+
+*****************************************/
+.p-top-hero {
+  background-color: variables.$c_base_gray;
+  text-align: center;
+  padding: 20vw 4vw;
+  @media #{map.get(variables.$max, md)} {
+  }
+}
+/****************************************
+
+         News
+
+*****************************************/
+.p-top-news {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.p-top-news__header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+@media #{map.get(variables.$max, sm)} {
+}
+
+/****************************************
+
+         XXX
+
+*****************************************/
+@media #{map.get(variables.$max, sm)} {
+}

@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "../../foundation/variables";
+@use 'sass:map';
+@use '../../foundation/variables';
 
 /*********************************************************
 
@@ -30,21 +30,20 @@
 .u-gutter--lg {
   padding-left: variables.$gutter_lg;
   padding-right: variables.$gutter_lg;
+  @media #{map.get(variables.$max, md)} {
+    padding-left: variables.$gutter_lg_max-md;
+    padding-right: variables.$gutter_lg_max-md;
+  }
 }
 .u-gutter--sm {
   padding-left: variables.$gutter_sm;
   padding-right: variables.$gutter_sm;
-}
-@media #{map.get(variables.$max, md)} {
-  .u-gutter--lg {
-    padding-left: variables.$gutter_liquid_lg;
-    padding-right: variables.$gutter_liquid_lg;
-  }
-  .u-gutter--sm {
-    padding-left: variables.$gutter_liquid_sm;
-    padding-right: variables.$gutter_liquid_sm;
+  @media #{map.get(variables.$max, md)} {
+    padding-left: variables.$gutter_sm_max-md;
+    padding-right: variables.$gutter_sm_max-md;
   }
 }
+
 /****************************************
 
           Only PC/SP

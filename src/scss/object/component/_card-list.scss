@@ -1,11 +1,11 @@
-@use "sass:math";
-@use "sass:map";
-@use "../../foundation/variables";
+@use 'sass:math';
+@use 'sass:map';
+@use '../../foundation/variables';
 
 /*********************************************************
 
 
-Post 
+Card List 
 
 
 **********************************************************/
@@ -101,48 +101,4 @@ $card_gutter: 0.6%;
   margin-right: 0.5em;
   margin-bottom: 0.1em;
   display: inline-block;
-}
-/****************************************
-
-         postlist
-
-*****************************************/
-.c-post-list {
-  border-bottom: 1px solid rgba(variables.$c_text, 0.3);
-}
-.c-post-item {
-  display: block;
-}
-
-.c-post-item__inner {
-  border-top: 1px solid rgba(variables.$c_text, 0.3);
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: baseline;
-  padding: 1.4em 0;
-}
-.c-post-item__content {
-  flex: 1 1 auto;
-}
-.c-post-item__heading {
-  font-size: 1.1em;
-  @media #{map.get(variables.$max, md)} {
-    font-size: 1em;
-  }
-}
-
-.c-post-list-item__meta {
-  margin-right: 1em;
-  white-space: nowrap;
-  flex: 0 0 auto;
-  @media #{map.get(variables.$max, md)} {
-    font-size: 0.7em;
-  }
-}
-.c-post-item__meta__date {
-  font-size: 0.8em;
-  @media #{map.get(variables.$max, md)} {
-    font-size: 0.7em;
-  }
 }

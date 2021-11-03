@@ -62,11 +62,7 @@ function insert_new_terms(array $term_array, string $taxonomy)
         }
     }
 }
-/* ========================================
 
-Logger
-
-======================================== */
 /**
  * Logファイルに変数を出力
  */

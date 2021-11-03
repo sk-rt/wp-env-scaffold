@@ -10,17 +10,18 @@ Functions for template
 
 namespace App\CustomTags;
 
+
 /**
- * クエリパラメータを除外canonicalURL取得
+ * クエリパラメータを除外したcanonicalURL取得
  */
 function get_the_canonical_url()
 {
     if (is_404()) {
         return home_url('/');
     }
-    $full_uri = $_SERVER["REQUEST_URI"];
+    $full_uri = $_SERVER['REQUEST_URI'];
     $path = parse_url($full_uri, PHP_URL_PATH);
-    return esc_url((empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $path);
+    return esc_url((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $path);
 }
 
 /**
@@ -82,54 +83,29 @@ function get_the_description()
         return get_bloginfo('description');
     }
 }
-/**
- * Share文言 取得
- */
-function util_get_share_text()
-{
-    return wp_title('｜', false, 'right') . get_bloginfo('name');
-}
-/* ========================================
 
-ショートコード
-
-======================================== */
-/**
- * theme url
- */
-add_shortcode('tempUrl', function () {
-    return get_template_directory_uri() . '/';
-});
-/**
- * home url
- */
-add_shortcode('homeUrl', function () {
-    return home_url('/');
-});
-
-/**
- * WPの `get_template_part()` ショートコード
- * [template temp="temp-path"]
- */
-add_shortcode('template', function ($atts) {
-    $atts = shortcode_atts(
-        array(
-            'temp' => '',
-        ),
-        $atts
-    );
-    $temp_path = 'template-parts/' . esc_attr($atts['temp']);
-    $view = get_template_part_html($temp_path);
-    return $view;
-});
 
 /* ========================================
 
 Global ナビ
 
 ======================================== */
-function get_navi_arr()
+function get_global_nav_list()
 {
+    $categories = get_terms('category');
+    $cat_nav = array();
+    if (!empty($categories) && !is_wp_error($categories)) {
+        $cat_nav = array_map(function ($term) {
+            $permalink = get_term_link($term);
+            return array(
+                'name' => $term->slug,
+                'permalink' => $permalink,
+                'label' => $term->slug,
+                'nav-slug' => str_replace(home_url(), '', $permalink),
+                'disabled' => false,
+            );
+        }, $categories);
+    }
     return array(
         array(
             'name' => 'about',
@@ -140,10 +116,19 @@ function get_navi_arr()
         ),
         array(
             'name' => 'news',
-            'permalink' => home_url('/news/'),
+            'permalink' => get_blog_home_url(),
             'label' => 'News',
             'nav-slug' => '/news',
             'disabled' => false,
+            'sub-items' => $cat_nav,
+        ),
+        array(
+            'name' => 'custom',
+            'permalink' => get_post_type_archive_link('custom'),
+            'label' => 'CustomPost',
+            'nav-slug' => '/custom',
+            'disabled' => false,
+
         ),
         array(
             'name' => 'contact',

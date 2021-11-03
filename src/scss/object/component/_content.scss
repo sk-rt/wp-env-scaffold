@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "../../foundation/variables";
-@use "../../foundation/general";
+@use 'sass:math';
+@use '../../foundation/variables';
+@use '../../foundation/general';
 
 /*********************************************************
 
@@ -21,14 +21,14 @@ Content
     font-size: math.div(24, 16) * 1em;
     margin-top: 1.3em;
     margin-bottom: 1em;
-    border-bottom: 1px solid variables.$c_main;
+    border-bottom: 1px solid;
     padding-bottom: 0.1em;
   }
   h2 {
     font-size: math.div(20, 16) * 1em;
     margin-top: 1.3em;
     margin-bottom: 1em;
-    border-left: 4px solid variables.$c_main;
+    border-left: 4px solid;
     padding-left: 0.6em;
     padding-bottom: 0.2em;
     padding-top: 0.2em;

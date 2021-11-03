@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "variables";
+@use 'sass:map';
+@use 'variables';
 
 /*********************************************************
 
@@ -28,7 +28,7 @@ html {
 body {
   font-size: 1em;
   line-height: 1.8;
-  font-weight: 300;
+  font-weight: 400;
   font-family: variables.$default_font;
   letter-spacing: 0.06em;
   color: variables.$c_text;
