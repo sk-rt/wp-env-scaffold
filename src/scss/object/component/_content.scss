@@ -9,7 +9,44 @@ Content
 
 
 **********************************************************/
+%c-content {
+  font-family: variables.$default_font;
+  h1 {
+    font-size: math.div(24, 16) * 1em;
+    border-bottom: 1px solid;
+    padding-bottom: 0.1em;
+  }
+  h2 {
+    font-size: math.div(20, 16) * 1em;
+    border-left: 4px solid;
+    padding-left: 0.6em;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+  }
 
+  h3,
+  h4 {
+    font-size: math.div(18, 16) * 1em;
+  }
+  h5,
+  h6 {
+    font-size: 1em;
+  }
+  blockquote {
+    padding-left: 1.5em;
+    border-left: 2px solid rgba(variables.$c_text, 0.2);
+    position: relative;
+  }
+  hr {
+    display: block;
+    background: none;
+    border: none;
+    border-top: 1px solid;
+    opacity: 0.5;
+    margin: 2.5em auto;
+    width: 80%;
+  }
+}
 .c-content {
   @extend .clearfix;
   font-size: 1rem;

@@ -149,7 +149,7 @@ function enqueue_cutomize_block_editor_assets()
     $temp_url = get_stylesheet_directory_uri();
     $temp_path = get_stylesheet_directory();
     // JS
-    $js_path = '/admin-assets/js/custom-editor.js';
+    $js_path = '/js/admin-editor.js';
     wp_enqueue_script(
         'custom-editor-script',
         $temp_url .  $js_path,
@@ -158,7 +158,7 @@ function enqueue_cutomize_block_editor_assets()
         false
     );
     // CSS
-    $css_path = '/admin-assets/css/custom-editor.css';
+    $css_path = '/css/admin-editor.css';
     wp_enqueue_style(
         'custom-editor-style',
         $temp_url .  $css_path,
@@ -194,8 +194,8 @@ function filter_allowed_block_types($allowed_block_types)
 {
     $allowed_block_types = array(
         // ------- design -------
-        'core/button', // Button
-        // 'core/buttons', // Buttons
+        // 'core/button', // Button
+        'core/buttons', // Buttons
         // 'core/columns', // Columns
         // 'core/group', // Group
         // 'core/more', // More
@@ -276,6 +276,7 @@ add_filter('allowed_block_types_all', 'App\Editor\filter_allowed_block_types');
  */
 function filter_block_editor_settings($editor_settings, $editor_context)
 {
+    Helper\debug_log($editor_settings);
 
     // align full / align wide を無効化
     $editor_settings['supportsLayout'] = false;

@@ -1,3 +1,7 @@
+'use strict';
+
+import '../scss/admin-editor.scss';
+declare var wp: any;
 /* -------------------------
  
 customize block editor
@@ -8,8 +12,8 @@ wp.domReady(() => {
   removeBlockVariatons();
   removeFormatTypes();
   removeBlockStyles();
+  filterBlockSetting();
 });
-filterBlockSetting();
 
 /**
  *  Remove BlockVariatons
@@ -30,7 +34,7 @@ function removeBlockVariatons() {
    * 不要なcore/embedのBlockVariationを削除
    */
   const allowedEmbedVariation = ['youtube', 'vimeo', 'twitter', 'wordpress'];
-  wp.blocks.getBlockVariations('core/embed').forEach((variation) => {
+  wp.blocks.getBlockVariations('core/embed').forEach((variation: any) => {
     if (allowedEmbedVariation.indexOf(variation.name) !== -1) return;
     wp.blocks.unregisterBlockVariation('core/embed', variation.name);
   });
@@ -73,11 +77,11 @@ function removeBlockStyles() {
   }
   // 全てのブロックスタイルを削除;
   const allBlocks = wp.blocks.getBlockTypes();
-  allBlocks.forEach((block) => {
+  allBlocks.forEach((block: any) => {
     if (block.styles.length === 0) {
       return;
     }
-    block.styles.forEach((style) => {
+    block.styles.forEach((style: any) => {
       wp.blocks.unregisterBlockStyle(block.name, style.name);
     });
   });
@@ -113,18 +117,18 @@ function removeBlockStyles() {
  * supportsの上書きでanchorなどは制御できる。
  */
 function filterBlockSetting() {
-  wp.hooks.addFilter(
-    'blocks.registerBlockType',
-    'app/custom-block-type-filter',
-    (settings, name) => {
-      // core/buttonsの代わりにcore/buttonを使う
-      // デフォルトでparetnに core/buttonsが設定されているのでこれを削除
-      if (name === 'core/button') {
-        if (settings.parent) {
-          settings.parent = false;
-        }
-      }
-      return settings;
-    }
-  );
+  // wp.hooks.addFilter(
+  //   'blocks.registerBlockType',
+  //   'app/custom-block-type-filter',
+  //   (settings: any, name: any) => {
+  //     // core/buttonsの代わりにcore/buttonを使う
+  //     // デフォルトでparetnに core/buttonsが設定されているのでこれを削除
+  //     if (name === 'core/button') {
+  //       if (settings.parent) {
+  //         settings.parent = false;
+  //       }
+  //     }
+  //     return settings;
+  //   }
+  // );
 }

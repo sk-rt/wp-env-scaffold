@@ -16,6 +16,7 @@ const themeName = ((themePath) => {
 module.exports = {
   entry: {
     main: `${__dirname}/src/js/main.ts`,
+    'admin-editor': `${__dirname}/src/js/admin-editor.ts`,
   },
   target: 'web',
   mode: isDevelopment ? environment : 'production',
@@ -74,6 +75,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -86,7 +95,7 @@ module.exports = {
       NODE_ENV: JSON.stringify(environment),
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/style.css',
+      filename: 'css/[name].css',
     }),
     new BrowserSyncPlugin({
       proxy: `localhost:${wpConfig.port}`,

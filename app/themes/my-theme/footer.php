@@ -3,8 +3,9 @@
     <a href="#" aria-label="Page Top"><i class="c-icon-angle--top"></i></a>
     <div class="l-footer__inner">
         <h2 class="l-footer__author">
-            <a href="https://github.com/sk-rt/docker-wordpress-theme-dev"  target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/sk-rt/wp-env-scaffold"  target="_blank" rel="noopener noreferrer">
             @sk-rt
+            <svg class="c-icon-external"><use xlink:href="#icon_external"></use></svg>
             </a>
         </h2>
         <nav class="l-footer__nav l-footer-nav" data-drawer-nav-id="drawer">

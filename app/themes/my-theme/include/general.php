@@ -82,7 +82,7 @@ function enqueue_frontend_asstes()
     $temp_path = get_stylesheet_directory();
 
     //CSS
-    $css_path = '/css/style.css';
+    $css_path = '/css/main.css';
     wp_enqueue_style(
         'app',
         $temp_url . $css_path,

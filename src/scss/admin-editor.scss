@@ -1,7 +1,22 @@
+@charset "UTF-8";
+@use 'foundation/variables';
+@use 'object/component/content';
+
 .editor-styles-wrapper {
   max-width: 720px;
   margin: 0 auto;
+  @extend %c-content;
 }
+.edit-post-visual-editor__post-title-wrapper {
+  .editor-post-title {
+    margin-bottom: 3em;
+    border-bottom: 1px solid variables.$c_line_gray;
+    .editor-post-title__input {
+      font-weight: 600;
+    }
+  }
+}
+
 /* 全てのalign系ツールバーボタンを削除 */
 .components-dropdown-menu__toggle[aria-label='配置'],
 .components-dropdown-menu__toggle[aria-label='Align'] {
