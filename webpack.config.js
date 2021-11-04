@@ -8,10 +8,6 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const environment = process.env.NODE_ENV || 'development';
 const isDevelopment = environment === 'development';
 const themePath = wpConfig.themes[0];
-const themeName = ((themePath) => {
-  const pathList = themePath.split('/');
-  return pathList[pathList.length - 1] || pathList[pathList.length - 2];
-})(themePath);
 
 module.exports = {
   entry: {
@@ -25,9 +21,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
   },
   output: {
-    path: isDevelopment
-      ? path.resolve(__dirname, themePath)
-      : path.resolve(__dirname, 'dist/', themeName),
+    path: path.resolve(__dirname, themePath),
     publicPath: themePath,
     filename: 'js/[name].js',
   },

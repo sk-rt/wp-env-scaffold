@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "npm-run-all -p watch:*",
-    "build": "npm-run-all clean-dist dist:wp-theme build:webpack",
+    "build": "npm-run-all -s clean-dist build:webpack dist:wp-theme",
     "watch:webpack": "webpack --watch",
     "build:webpack": "NODE_ENV=production webpack --mode production",
     "dist:wp-theme": "cpx \"app/themes/!(twenty*)/**/*.!(log)\" dist/",
